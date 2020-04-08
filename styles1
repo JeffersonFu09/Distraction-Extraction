@@ -1,0 +1,46 @@
+body {
+    height: 100vh;
+}
+.wrapper {
+    display: flex;
+    background-color: rgb(218, 250, 243);
+    flex-direction: row;
+}
+
+.sidebar {
+  /* for layout */
+  width: 420px;
+  height: 550px;
+  overflow: hidden;
+
+  /* for styling */
+ /* padding: 1em;*/
+  text-align: left;
+  border-right: 5px double darkblue;
+  background-color:rgb(162, 162, 209);
+}
+  .display1 {
+    /* for layout */
+    width: 420px;
+    height: 20%;
+    border-top: 5px double darkblue;
+    overflow: hidden;
+    background-color: lightblue;
+  }
+  .display2 {
+    /* for layout */
+    width: 420px;
+    height: 100%;
+    border-top: 5px double darkblue;
+    overflow: hidden;
+    background-color:lightgreen;
+  }
+  .image-1{
+      width:200px;
+      height:200px;
+  }
+  .main-content {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
