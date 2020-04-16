@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>    
+    <title>Distraction Extraction</title>
+    <link rel="stylesheet" type="text/css" href="styles1.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class="display1">
+                <form id="value" action="" method="GET">
+                    <input name="" type="text" id="url" placeholder="Search by URL..." />
+                    <br>
+                    <input type="submit" value="ENTER" onclick="getNewSite();return false"/>
+                </form>
+            </div>
+            <div class = "display2">
+                <div id="urlLabel"></div>
+            </div>
+        </div>
+        <div class="main-content">
+            <font size = "7"><p style="text-align:center">Distraction Extraction</p></font>
+            <img class ="image-1" src="img/book2.png"/> 
+            <!-- <script src="app.js"></script> -->
+            <script>
+                var inputArray = [];
+                function getNewSite() {
+                    var newUrl = document.getElementById('url').value;
+                    inputArray.push(newUrl);
+                    document.getElementById('urlLabel').innerHTML = inputArray[inputArray.length-1];
+                    var myHeaders = new Headers();
+                    myHeaders.append("Content-Type", "application/json");
+                    
+                    var raw = JSON.stringify(inputArray);
+                    
+                    var requestOptions = {
+                        method: 'POST',
+                        headers: myHeaders,
+                        body: raw,
+                        redirect: 'follow'
+                    };
+                    
+                    fetch("http://localhost:3000/updateBlackList", requestOptions)
+                    .then(response => response.text())
+                    .then(result => console.log(result))
+                    .catch(error => console.log('error', error));
+                }  
+            </script>  
+        </div> 
+            <div class="maintext">Ever have run into trouble managing your time? Ever have 
+            problems staying on track? Just enter the sites you want 
+            monitored into the text bar and we will help you with your
+            studying!
+            </div>        
+        </div>
+    </body>
+    </html>
